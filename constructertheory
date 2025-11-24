@@ -62,7 +62,7 @@ System.out.println("Parameterized constructor: " + x);
 }
 
 That’s why the second constructor runs first.
-🔥 Why does it come BACK to the first constructor?
+Why does it come BACK to the first constructor?
 
 Because this(10) is literally a function call.
 
