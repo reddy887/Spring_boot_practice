@@ -1,0 +1,78 @@
+“A constructor is a special method-like block that runs automatically when an object is created. Its purpose is to initialize the object’s state. It has no return type, must have the same name as the class, and we use parameterized constructors to pass values during object creation.”1. Real-Time Constructor Example (Most Used in Companies)
+
+A User Registration / Login Model — every backend app uses this.
+
+Example: Creating a User object with required values
+class User {
+String username;
+String email;
+int age;
+
+    // Constructor for initialization
+    User(String username, String email, int age) {
+        this.username = username;
+        this.email = email;
+        this.age = age;
+        System.out.println("User object created.");
+    }
+
+}
+
+public class Main {
+public static void main(String[] args) {
+User u = new User("reddy", "reddy@gmail.com", 20);
+System.out.println(u.username + " " + u.email + " " + u.age);
+}
+}
+
+Why this matters?
+
+Because in real projects, you NEVER create empty objects like new User().
+You always pass values → authentication, DB models, API objects, etc.
+
+If you still use empty objects, you're doing amateur coding.🔥 Why does the second constructor run first?
+
+Because of ONE RULE in Java:
+
+Rule:
+
+this() must be the FIRST line inside a constructor.
+Java won't allow anything before it — not even a print statement.
+
+So when the JVM enters this constructor:
+
+Example() {
+this(10);  
+ System.out.println("No-arg constructor");
+}
+
+It sees:
+
+Line 1 → this(10)
+
+This means:
+
+“Before you continue this constructor, go execute the other constructor.”
+
+Java has no choice.
+It MUST jump to:
+
+Example(int x) {
+System.out.println("Parameterized constructor: " + x);
+}
+
+That’s why the second constructor runs first.
+🔥 Why does it come BACK to the first constructor?
+
+Because this(10) is literally a function call.
+
+Think of it like this:
+
+function A() {
+B(); // call B
+print("End of A");
+}
+
+function B() {
+print("Inside B");
+}
