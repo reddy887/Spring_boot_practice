@@ -9,6 +9,7 @@ public class constructor{
     }
     public static void main(String[] args){
         constructor con=new constructor("reddybabu",23,"bca");
+        System.out.println(con.name);
     }
 
 }
